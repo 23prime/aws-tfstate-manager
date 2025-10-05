@@ -10,7 +10,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket       = "tfstate-terraform-bootstrap-aws-678084882233"
+    bucket       = "tfstate-aws-tfstate-manager-678084882233"
     key          = "terraform.tfstate"
     region       = "ap-northeast-1"
     encrypt      = true

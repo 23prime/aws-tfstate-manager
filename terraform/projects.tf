@@ -1,10 +1,10 @@
 locals {
   projects = {
-    terraform-bootstrap-aws = {
-      bucket_name = "tfstate-terraform-bootstrap-aws-${var.aws_account_id}"
+    aws-tfstate-manager = {
+      bucket_name = "tfstate-aws-tfstate-manager-${var.aws_account_id}"
       tags = {
         Environment = "production"
-        Project     = "terraform-bootstrap-aws"
+        Project     = "aws-tfstate-manager"
       }
     }
 
