@@ -66,13 +66,13 @@ tasks:
     desc: "Show Terraform outputs"
     dir: terraform
     cmds:
-      - terraform output
+      - aws-vault exec {{.AWS_PROFILE}} -- terraform output
 
   state:
     desc: "Show Terraform state"
     dir: terraform
     cmds:
-      - terraform state list
+      - aws-vault exec {{.AWS_PROFILE}} -- terraform show
 
   version:
     desc: "Show Terraform version"
