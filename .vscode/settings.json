@@ -1,0 +1,48 @@
+{
+  // YAML
+  "yaml.format.enable": true,
+  "yaml.schemas": {
+    "https://json.schemastore.org/taskfile.json": "tasks/*.yml",
+  },
+  "[yaml]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+  },
+
+  // Markdown
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+  },
+
+  // JSON
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "biomejs.biome",
+  },
+  "[jsonc]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "biomejs.biome",
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+  },
+  "biome.enabled": true,
+
+  // Dictionary for spell checker
+  "cSpell.words": ["shellcheck", "Taskfile"],
+
+  // Terraform
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+  },
+  "terraform.experimentalFeatures.validateOnSave": true,
+  "files.associations": {
+    "*.tfvars*": "terraform-vars",
+  },
+}

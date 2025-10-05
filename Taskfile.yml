@@ -1,0 +1,46 @@
+version: "3"
+
+includes:
+  mise: tasks/MiseTasks.yml
+  yml: tasks/YamlTasks.yml
+  json: tasks/JsonTasks.yml
+  md: tasks/MarkdownTasks.yml
+  gh: tasks/GitHubTasks.yml
+  tf: tasks/TerraformTasks.yml
+
+tasks:
+  default:
+    cmds:
+      - task: list
+      - task: mise:versions
+
+  list:
+    desc: List all tasks
+    cmd: task --list-all
+    aliases:
+      - l
+
+  select-run:
+    desc: "Select and run with fzf"
+    cmds:
+      - ./tasks/task-select-run.sh
+    aliases:
+      - sr
+
+  setup:
+    desc: "Setup project"
+    cmds:
+      - task: mise:setup
+    aliases:
+      - s
+
+  check:
+    desc: "Check"
+    deps:
+      - yml:check
+      - json:check
+      - md:check
+      - gh:check
+      - tf:check
+    aliases:
+      - c

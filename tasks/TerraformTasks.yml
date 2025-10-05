@@ -1,0 +1,80 @@
+version: "3"
+
+env:
+  AWS_PROFILE: "default"
+
+tasks:
+  check:
+    desc: "Check Terraform configuration"
+    dir: terraform
+    cmds:
+      - task: fix
+      - task: validate
+      - task: fmt:check
+
+  init:
+    desc: "Initialize Terraform"
+    dir: terraform
+    cmds:
+      - aws-vault exec {{.AWS_PROFILE}} -- terraform init
+
+  init:migrate:
+    desc: "Initialize Terraform and migrate state"
+    dir: terraform
+    cmds:
+      - aws-vault exec {{.AWS_PROFILE}} -- terraform init -migrate-state
+
+  plan:
+    desc: "Plan Terraform changes"
+    dir: terraform
+    cmds:
+      - aws-vault exec {{.AWS_PROFILE}} -- terraform plan
+
+  apply:
+    desc: "Apply Terraform changes"
+    dir: terraform
+    cmds:
+      - aws-vault exec {{.AWS_PROFILE}} -- terraform apply
+
+  destroy:
+    desc: "Destroy Terraform infrastructure"
+    dir: terraform
+    cmds:
+      - aws-vault exec {{.AWS_PROFILE}} -- terraform destroy
+
+  validate:
+    desc: "Validate Terraform configuration"
+    dir: terraform
+    cmds:
+      - terraform validate
+
+  fmt:
+    desc: "Format Terraform files"
+    dir: terraform
+    cmds:
+      - terraform fmt -recursive
+    aliases:
+      - fix
+
+  fmt:check:
+    desc: "Check Terraform formatting"
+    dir: terraform
+    cmds:
+      - terraform fmt -check -recursive
+
+  output:
+    desc: "Show Terraform outputs"
+    dir: terraform
+    cmds:
+      - terraform output
+
+  state:
+    desc: "Show Terraform state"
+    dir: terraform
+    cmds:
+      - terraform state list
+
+  version:
+    desc: "Show Terraform version"
+    cmds:
+      - terraform version
