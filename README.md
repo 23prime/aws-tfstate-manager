@@ -1,4 +1,4 @@
-# Bootstrap Terraform with AWS
+# AWS Terraform state manager
 
 This repository is for setting up and managing AWS resources required for Terraform state management.
 
