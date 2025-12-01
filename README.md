@@ -71,7 +71,7 @@ This repository is for setting up and managing AWS resources required for Terraf
 ## Configuration Values
 
 | Item | Required | Description |
-|:-|:-|:-|
+| :- | :- | :- |
 | `aws_account_id` | Yes | AWS account ID to use for state management |
 | `aws_region` | No | AWS region to use for state management (default: `ap-northeast-1`) |
 
